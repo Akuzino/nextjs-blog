@@ -1,6 +1,8 @@
 import React from "react";
-
+import Image from "next/image";
 import moment from "moment";
+
+import { grpahCMSImageLoader } from "../util";
 
 const PostDetail = ({ post }) => {
     const getContentFragment = (index, text, obj, type) => {
@@ -47,7 +49,9 @@ const PostDetail = ({ post }) => {
                 );
             case "image":
                 return (
-                    <img
+                    <Image
+                    unoptimized
+                        loader={grpahCMSImageLoader}
                         key={index}
                         alt={obj.title}
                         height={obj.height}
